@@ -1,3 +1,3 @@
 # JavaScriptAlgorithm
 
-Companion repo to a course on Udemy.com
+It contains solution to different algorithem problems with solutions.
