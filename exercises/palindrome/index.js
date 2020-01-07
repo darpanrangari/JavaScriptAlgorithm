@@ -13,6 +13,18 @@ function palindrome(str) {
     })
 }
 
+// Solution 2 using for loop
+// function palindrome(str){
+//     let ispalindrome = true;
+//     for (let i = 0; i < str.length; i++)
+//     {
+//         if(str[i] !== (str[str.length - i - 1 ])){
+//             return false;
+//         }
+//     }
+//
+//     return ispalindrome ;
+// }
 // Solution 1
 // function palindrome(str) {
 //     const reversed = str
@@ -22,4 +34,7 @@ function palindrome(str) {
 //     return reversed === str;
 // }
 
-module.exports = palindrome;
+
+
+
+    module.exports = palindrome;
