@@ -20,9 +20,9 @@ class LinkedList {
 
     size(){
         let count = 0 ;
-        let node = this.head
+        let node = this.head;
         while(node){
-            count ++
+            count ++;
             node = node.next
         }
 
@@ -30,11 +30,15 @@ class LinkedList {
     }
 
     getFirst(){
-        return this.head
+        return this.head;
     }
 
     getLast(){
-        let node = this.head
+        if (!this.head) {
+            return null;
+        }
+
+        let node = this.head;
 
         while(node){
             if(!node.next){
@@ -100,11 +104,66 @@ class LinkedList {
             if(counter === index){
                 return node;
             }
-            counter ++
+            counter ++;
             node = node.next
         }
 
         return null
+    }
+
+    removeAt(index){
+        if (!this.head){
+            return;
+        }
+
+        if(index === 0){
+            this.head = this.head.next;
+            return;
+        }
+
+        let node = this.head;
+        let counter = 0;
+
+        while(node){
+            if(counter === index - 1){
+                let previous = node;
+                if(previous && previous.next){
+                    previous.next = previous.next.next;
+                }
+                return;
+            }
+            counter ++;
+            node = node.next;
+        }
+    }
+
+    insertAt(data, index){
+        if(!this.head){
+            this.head = new Node(data);
+            return;
+        }
+
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        let node = this.head;
+        let counter = 0;
+
+        while(node){
+            //find previous node
+            if(counter === index - 1){
+                let previous = node;
+                //previous node point to new node
+                // new node to point to previous.next
+                previous.next = new Node(data, previous.next);
+                return
+            }
+
+            counter++;
+            node = node.next;
+        }
     }
 
 }
